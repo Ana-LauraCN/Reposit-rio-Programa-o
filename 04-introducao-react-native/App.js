@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, Image} from 'react-native';
+import { Button, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
 
 export default function App() {
@@ -10,8 +10,11 @@ export default function App() {
   }
 
   return (
+    <ScrollView>
+
     <View style={styles.container}>
       <Text style={styles.text}>ENROLADOS 🤩</Text>
+      <Text style={{ fontSize:40}}>DISNEY</Text>
      <Button  title='Clique aqui' onPress={alerta}></Button>
 
      <Image
@@ -23,14 +26,27 @@ export default function App() {
      }}
      />
 
+  <Image
+     source={require('./img/image.png')}
+     style={{
+      height: 600,
+      width: 400,
+      paddingTop: 150
+     }}
+     />
+
+
       <StatusBar style="auto" />
     </View>
+    
+      </ScrollView>
   );
 }
 
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 150,
     flex: 1,
     backgroundColor: '#ecdffd', 
     alignItems: 'center',
