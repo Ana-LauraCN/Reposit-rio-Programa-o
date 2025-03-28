@@ -20,13 +20,9 @@ return (
         source={{
           uri: capa
         }}
-        style={{
-          height: 200,
-          width: 200
-        }}
-
+        style={styles.image}
       />
-
+      
     </View>
   )
 }
