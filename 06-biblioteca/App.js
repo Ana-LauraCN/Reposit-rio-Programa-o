@@ -1,71 +1,119 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, FlatList } from 'react-native';
-import { PaperProvider, Card, Paragraph, Title, Text, Button, Divider } from 'react-native-paper';
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { PaperProvider, Text } from 'react-native-paper';
+import Estado from './componentes/Estado';
 
 export default function App() {
 
-  const listaFrutas = ["Uva", "Maça", "Laranja", "Melão"]
-
-  const listaCards = [
+  const listaEstadosMunicipios = [
     {
-    titulo: "Card 1",
-    descricao: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
-    imagem: 'https://picsum.photo/700'
-
-  },
-  {
-    titulo: "Card 2",
-    descricao: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
-    imagem: 'https://picsum.photo/700'
-
-  },
-  {
-    titulo: "Card 3",
-    descricao: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
-    imagem: 'https://picsum.photo/700'
-
-  },
+      nome: 'Rio de Janeiro',
+      sigla: 'RJ',
+      imagem: 'https://picsum.photos/700',
+      descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      municipios: [
+        {
+          nome: 'Rio de Janeiro',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Niterói',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Petrópolis',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Angra dos Reis',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Cabo Frio',
+          imagem: 'https://picsum.photos/700'
+        }
+      ]
+    },
+    {
+      nome: 'São Paulo',
+      sigla: 'SP',
+      imagem: 'https://picsum.photos/700',
+      descricao: 'São Paulo é o estado mais populoso do Brasil, com uma economia diversificada e forte.',
+      municipios: [
+        {
+          nome: 'São Paulo',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Campinas',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Santos',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Sorocaba',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Ribeirão Preto',
+          imagem: 'https://picsum.photos/700'
+        }
+      ]
+    },
+    {
+      nome: 'Minas Gerais',
+      sigla: 'MG',
+      imagem: 'https://picsum.photos/700',
+      descricao: 'Minas Gerais é conhecido por sua rica história, culinária e belas paisagens.',
+      municipios: [
+        {
+          nome: 'Belo Horizonte',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Ouro Preto',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Uberlândia',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Juiz de Fora',
+          imagem: 'https://picsum.photos/700'
+        },
+        {
+          nome: 'Montes Claros',
+          imagem: 'https://picsum.photos/700'
+        }
+      ]
+    }
   ]
+
+
   return (
     <PaperProvider>
       <View style={styles.container}>
         <StatusBar style="auto" />
 
-        {
-          listaFrutas.map(
-            item => <Text variant='displayLarge'>{item}</Text>
-          )
-        }
+        <Text variant='displaySmall'>Lista de Estados</Text>
 
-        {
-          listaFrutas.map(
-            item => (
-              <View>
-                <Text variant='displaySmall'>{item}</Text>
-                <Divider style={{ height: 1 }} />
-              </View>
-            )
-          )
-        }
         <FlatList
-          data={listaFrutas}
-          renderItem={({ item }) => <Text variant='headlineMedium'>{item}</Text>}
+          data={listaEstadosMunicipios}
+          renderItem={({ item }) => (
+            <Estado
+              nome={item.nome}
+              sigla={item.sigla}
+              descricao={item.descricao}
+              imagem={item.imagem}
+              municipios={item.municipios}
+            />
+          )}
         />
-        <FlatList
-           data={listaCards}
-           renderItem={({item}) => (
-            <Card style={{marginBottom: 10}}>
-              <Card.Content>
-                <Title>{item.titulo}</Title>
-                <Title>{item.descricao}</Title>
-               
-              </Card.Content>
-              <Card.Content>
-                  <Card.Cover source={{uri: item.imagem}}/>
-                  </Card.Content>
-            </Card>
-           )}
-        />
+
 
       </View>
     </PaperProvider>
@@ -78,5 +126,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 20
   },
 });
