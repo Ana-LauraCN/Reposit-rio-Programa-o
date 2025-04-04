@@ -24,7 +24,10 @@ export default function Time(props) {
           renderItem={({ item }) => (
             <Jogador
               nome={item.nome}
-              imagem={item.imagem}
+              numero={item.numero}
+              imagem={item.imagem
+
+              }
             />
           )}
         />

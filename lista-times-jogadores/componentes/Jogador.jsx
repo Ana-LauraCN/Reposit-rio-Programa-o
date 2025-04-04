@@ -4,12 +4,13 @@ import { Avatar, Card } from 'react-native-paper'
 
 export default function Jogador(props) {
 
-  const { nome, imagem } = props
+  const { nome, imagem, numero} = props
 
   return (
     <Card.Title
       style={{ margin: 10 }}
       title={nome}
+      subtitle={numero}
       left={(props) => <Avatar.Image {...props} source={{ uri: imagem }} />}
     />
   )
