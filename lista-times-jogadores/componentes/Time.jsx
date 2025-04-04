@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text } from 'react-native'
 import { Card } from 'react-native-paper'
-import Municipio from './Jogador'
+import Jogador from './Jogador'
 
 export default function Time(props) {
 
@@ -22,7 +22,7 @@ export default function Time(props) {
           horizontal
           data={jogadores}
           renderItem={({ item }) => (
-            <Municipio
+            <Jogador
               nome={item.nome}
               imagem={item.imagem}
             />

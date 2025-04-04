@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { PaperProvider, Text } from 'react-native-paper';
-import Estado from './componentes/Time.jsx';
+import Time from './componentes/Time.jsx';
 
 export default function App() {
 
@@ -73,7 +73,7 @@ export default function App() {
         <FlatList
           data={times}
           renderItem={({ item }) => (
-            <Estado
+            <Time
               nome={item.nome}
               anoFundacao={item.anoFundacao}
               mascote={item.mascote}
