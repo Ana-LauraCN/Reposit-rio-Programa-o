@@ -52,4 +52,28 @@ export default function ReceitaScreen({ navigation, route }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 20,
+    paddingHorizontal: 10,
+    backgroundColor: "#f0f0f0",
+  },
+  title: {
+    textAlign: "center",
+    marginVertical: 15,
+    fontWeight: "bold",
+  },
+  card: {
+    marginVertical: 10,
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    elevation: 2,
+  },
+  cardContent: {
+    marginTop: 10,
+  },
+  button: {
+    margin: 20,
+  },
+});
